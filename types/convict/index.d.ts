@@ -56,7 +56,11 @@ declare namespace convict {
         | Boolean;
 
     interface SchemaObj<T = any> {
-        default: T;
+        /**
+         * You can define a configuration property as "required" without providing a default value.
+         * Set its default to null and if your format doesn't accept null it will throw an error.
+         */
+        default: T | null;
         doc?: string;
         /**
          * From the implementation:
